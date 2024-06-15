@@ -1,8 +1,17 @@
-```txt
-npm install
-npm run dev
+### To install dependencies
+
+```sh
+bun install
 ```
 
-```txt
-npm run deploy
+### To run dev server
+
+```sh
+bun dev
+```
+
+### To build
+
+```sh
+bun build
 ```
