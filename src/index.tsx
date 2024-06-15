@@ -2,9 +2,18 @@ import { Hono } from "hono";
 import { renderer } from "@/middlewares/renderer";
 import { log } from "@/middlewares/log";
 import { cn } from "./lib/cn";
+import { serveStatic } from "hono/bun";
 
 const app = new Hono();
-
+app.get(
+  "*",
+  serveStatic({
+    root: "./",
+    onNotFound: (path, c) => {
+      console.log(`${path} is not found, you access ${c.req.path}`);
+    },
+  })
+);
 app.use(renderer, log);
 
 let counter = 0;
@@ -14,7 +23,7 @@ app
     c.body(
       <>
         Clicked on button
-        <span class="font-bold text-xl">{++counter}</span>
+        <span class="font-bold text-xl"> {++counter} </span>
         {counter !== 1 ? "times" : "time"}
       </>
     )
@@ -23,7 +32,7 @@ app
     c.html(
       <>
         Clicked on button
-        <span class="font-bold text-xl">{--counter}</span>
+        <span class="font-bold text-xl"> {--counter} </span>
         {counter !== 1 ? "times" : "time"}
       </>
     )
@@ -48,7 +57,7 @@ app.get("/", (c) =>
         </Button>
       </div>
       <div id="container">
-        Clicked on button <span class="font-bold text-xl">{counter}</span>
+        Clicked on button<span class="font-bold text-xl"> {counter} </span>
         {counter !== 1 ? "times" : "time"}
       </div>
     </div>,

@@ -8,7 +8,8 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "types": ["typed-htmx", "bun"],
     "jsx": "react-jsx",
-    "jsxImportSource": "typed-htmx/typed-html",
+    "jsxImportSource": "typed-htmx/typed-html", // use when coding
+    // "jsxImportSource": "hono/jsx", // use when building
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]

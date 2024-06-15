@@ -13,5 +13,5 @@ bun dev
 ### To build
 
 ```sh
-bun build
+bun run build
 ```

@@ -2,9 +2,11 @@
   "type": "module",
   "scripts": {
     "dev": "bunx --bun vite",
-    "build": "bunx --bun vite build"
+    "build": "bunx --bun vite build --mode bundle && bunx --bun vite build",
+    "start": "NODE_ENV=PRODUCTION bun --bun dist/_worker.js"
   },
   "dependencies": {
+    "@hono/vite-ssg": "^0.1.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "hono": "^4.4.6",
@@ -20,7 +22,7 @@
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.4",
     "typed-htmx": "^0.3.1",
-    "vite": "^5.2.12",
+    "vite": "^5.3.1",
     "wrangler": "^3.57.2"
   }
 }
