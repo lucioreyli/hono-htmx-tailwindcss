@@ -1,7 +1,6 @@
 import { Hono } from "hono";
 import { renderer } from "@/middlewares/renderer";
 import { log } from "@/middlewares/log";
-import { ComponentClass, FC } from "hono/jsx";
 import { cn } from "./lib/cn";
 
 const app = new Hono();
@@ -12,21 +11,21 @@ let counter = 0;
 
 app
   .post("/data", (c) =>
-    c.html(
-      <div id="container">
+    c.body(
+      <>
         Clicked on button
         <span class="font-bold text-xl">{++counter}</span>
         {counter !== 1 ? "times" : "time"}
-      </div>
+      </>
     )
   )
   .delete((c) =>
     c.html(
-      <div id="container">
+      <>
         Clicked on button
         <span class="font-bold text-xl">{--counter}</span>
         {counter !== 1 ? "times" : "time"}
-      </div>
+      </>
     )
   );
 

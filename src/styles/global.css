@@ -7,6 +7,7 @@
     @apply m-0 p-0 box-border;
   }
   body {
-    @apply bg-zinc-900 text-zinc-50;
+    @apply bg-zinc-950 text-zinc-50;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
