@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "bunx --bun vite",
     "build": "bunx --bun vite build --mode bundle && bunx --bun vite build",
-    "start": "NODE_ENV=PRODUCTION bun --bun dist/_worker.js"
+    "start": "cd dist && NODE_ENV=PRODUCTION bun _worker.js"
   },
   "dependencies": {
     "@hono/vite-ssg": "^0.1.0",

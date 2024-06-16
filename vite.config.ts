@@ -16,16 +16,13 @@ export default defineConfig(({ mode }) => {
         rollupOptions: {
           input: Object.fromEntries(
             globSync(["src/**/*.ts", "src/**/*.tsx", "src/**/*.css"]).map(
-              (file) => {
-                console.log(file);
-                return [
-                  path.relative(
-                    "src",
-                    file.slice(0, file.length - path.extname(file).length)
-                  ),
-                  fileURLToPath(new URL(file, import.meta.url)),
-                ];
-              }
+              (file) => [
+                path.relative(
+                  "src",
+                  file.slice(0, file.length - path.extname(file).length)
+                ),
+                fileURLToPath(new URL(file, import.meta.url)),
+              ]
             )
           ),
           output: {

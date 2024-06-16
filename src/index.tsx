@@ -1,20 +1,13 @@
 import { Hono } from "hono";
 import { renderer } from "@/middlewares/renderer";
 import { log } from "@/middlewares/log";
-import { cn } from "./lib/cn";
 import { serveStatic } from "hono/bun";
+import { Button } from "./components/button";
 
 const app = new Hono();
-app.get(
-  "*",
-  serveStatic({
-    root: "./",
-    onNotFound: (path, c) => {
-      console.log(`${path} is not found, you access ${c.req.path}`);
-    },
-  })
-);
-app.use(renderer, log);
+app.get("/static/lib/*", serveStatic({ root: "./" }));
+app.get("/static/styles/*", serveStatic({ root: "./" }));
+app.use(log);
 
 let counter = 0;
 
@@ -37,12 +30,6 @@ app
       </>
     )
   );
-
-const Button = ({ children, ...props }: JSX.HtmlButtonTag) => (
-  <button {...props} class={cn("p-6", props.class)}>
-    {children}
-  </button>
-);
 
 app.get("/", (c) =>
   c.render(
