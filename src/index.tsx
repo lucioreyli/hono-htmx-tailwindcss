@@ -7,13 +7,13 @@ import { Button } from "./components/button";
 const app = new Hono();
 app.get("/static/lib/*", serveStatic({ root: "./" }));
 app.get("/static/styles/*", serveStatic({ root: "./" }));
-app.use(log);
+app.use(renderer, log);
 
 let counter = 0;
 
 app
   .post("/data", (c) =>
-    c.body(
+    c.html(
       <>
         Clicked on button
         <span class="font-bold text-xl"> {++counter} </span>

@@ -1,8 +1,8 @@
 import path from "path";
 import { globSync } from "glob";
 import { UserConfigFnObject, defineConfig } from "vite";
-import devServer from "@hono/vite-dev-server";
 import { fileURLToPath } from "node:url";
+import devServer from "@hono/vite-dev-server";
 import pages from "@hono/vite-cloudflare-pages";
 
 export default defineConfig(({ mode }) => {
