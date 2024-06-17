@@ -11,8 +11,9 @@ export const renderer = async (c: Context, next: Next) => {
             rel="stylesheet"
           />
           <script
-            type="module"
-            src={`/${isDev ? "src" : "static"}/lib/htmx.${isDev ? "ts" : "js"}`}
+            src="https://unpkg.com/htmx.org@1.9.12"
+            integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2"
+            crossorigin="anonymous"
           ></script>
           <title>{title}</title>
         </head>
