@@ -9,7 +9,6 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "hono": "^4.4.6",
-    "htmx.org": "^1.9.12",
     "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
