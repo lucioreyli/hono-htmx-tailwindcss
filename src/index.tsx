@@ -43,7 +43,7 @@ app.get("/", (c) =>
           -
         </Button>
       </div>
-      <div id="container" hx-boost="true">
+      <div id="container">
         Clicked on button<span class="font-bold text-xl"> {counter} </span>
         {counter !== 1 ? "times" : "time"}
       </div>
