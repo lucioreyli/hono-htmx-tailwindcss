@@ -5,10 +5,13 @@
     "moduleResolution": "Bundler",
     "strict": true,
     "skipLibCheck": true,
-    "lib": ["esnext"],
+    "lib": ["dom", "esnext"],
     "types": ["bun"],
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx",
+    "verbatimModuleSyntax": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
