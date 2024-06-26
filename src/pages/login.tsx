@@ -47,8 +47,6 @@ app
     );
   })
   .post(async (c) => {
-    // const body = await c.req.parseBody();
-    await new Promise((r) => setTimeout(r, 2000));
     return c.redirect("/login");
   });
 
