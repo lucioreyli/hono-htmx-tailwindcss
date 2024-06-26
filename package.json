@@ -3,13 +3,14 @@
   "scripts": {
     "dev": "bunx --bun vite",
     "build": "bunx --bun vite build --mode bundle && bunx --bun vite build",
-    "start": "cd dist && NODE_ENV=PRODUCTION bun _worker.js"
+    "start": "cd dist && NODE_ENV=production bun _worker.js"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "hono": "^4.4.6",
-    "tailwind-merge": "^2.3.0"
+    "tailwind-merge": "^2.3.0",
+    "valibot": "^0.35.0"
   },
   "devDependencies": {
     "@hono/vite-cloudflare-pages": "^0.4.0",

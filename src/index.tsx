@@ -1,13 +1,14 @@
 import { Hono } from "hono";
 import { renderer } from "@/middlewares/renderer";
-import { log } from "@/middlewares/log";
 import { serveStatic } from "hono/bun";
 import { Button } from "./components/button";
+import { loginPage } from "./pages/login";
 
 const app = new Hono();
 app.get("/static/lib/*", serveStatic({ root: "./" }));
+app.get("/static/scripts/*", serveStatic({ root: "./" }));
 app.get("/static/styles/*", serveStatic({ root: "./" }));
-app.use(renderer, log);
+app.use(renderer);
 
 let counter = 0;
 
@@ -36,7 +37,12 @@ app.get("/", (c) =>
     <div class="grid content-center h-dvh w-fit mx-auto">
       <h1 class="mx-auto text-2xl">Hello world!</h1>
       <div class="grid grid-cols-2 w-fit mx-auto gap-2">
-        <Button hx-post="/data" hx-target="#container" class="bg-green-500">
+        <Button
+          id="plus"
+          hx-post="/data"
+          hx-target="#container"
+          class="bg-green-500"
+        >
           +
         </Button>
         <Button hx-delete="/data" hx-target="#container" class="bg-red-500">
@@ -51,5 +57,7 @@ app.get("/", (c) =>
     { title: "Home" }
   )
 );
+
+app.route("/", loginPage);
 
 export default app;

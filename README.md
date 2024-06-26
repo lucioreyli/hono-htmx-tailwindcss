@@ -15,3 +15,9 @@ bun dev
 ```sh
 bun run build
 ```
+
+### To start production build
+
+```sh
+bun start
+```

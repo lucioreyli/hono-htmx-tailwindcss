@@ -15,15 +15,15 @@ export default defineConfig(({ mode }) => {
       build: {
         rollupOptions: {
           input: Object.fromEntries(
-            globSync(["src/**/*.ts", "src/**/*.tsx", "src/**/*.css"]).map(
-              (file) => [
+            globSync(["src/**/*.ts", "src/**/*.tsx", "src/**/*.css"])
+              .filter((file) => !file.endsWith(".d.ts"))
+              .map((file) => [
                 path.relative(
                   "src",
                   file.slice(0, file.length - path.extname(file).length)
                 ),
                 fileURLToPath(new URL(file, import.meta.url)),
-              ]
-            )
+              ])
           ),
           output: {
             entryFileNames: "static/[name].js",
@@ -36,5 +36,6 @@ export default defineConfig(({ mode }) => {
   return {
     ...baseCfg,
     plugins: [devServer({ entry: "src/index.tsx" }), pages()],
+    server: { hmr: { overlay: false } },
   };
 });
